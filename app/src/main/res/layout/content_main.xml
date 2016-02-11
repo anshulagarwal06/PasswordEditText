@@ -17,5 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:hide_drawable="@drawable/hide_password"
+        app:password_visible="false"
         app:show_drawable="@drawable/show_password" />
 </RelativeLayout>

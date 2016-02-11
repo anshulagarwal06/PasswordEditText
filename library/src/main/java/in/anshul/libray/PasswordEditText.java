@@ -2,11 +2,11 @@ package in.anshul.libray;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.v4.content.ContextCompat;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -30,30 +30,35 @@ public class PasswordEditText extends EditText {
 
     public PasswordEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context, attrs);
+        init(context, attrs, 0, 0);
     }
 
 
     public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs);
+        init(context, attrs, 0, 0);
     }
 
     @TargetApi(21)
     public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        init(context, attrs);
+        init(context, attrs, defStyleAttr, defStyleRes);
     }
 
-    private void init(Context context, AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.password_edit_text, defStyleAttr, defStyleRes);
 
-        Resources res = context.getResources();
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.password_edit_text);
-
-        mHideDrawable = a.getDrawable(R.styleable.password_edit_text_hide_drawable);
-        mShowDrawable = a.getDrawable(R.styleable.password_edit_text_show_drawable);
-        mPasswordVisible = a.getBoolean(R.styleable.password_edit_text_password_visible, false);
-        a.recycle();
+        int hideDrawableResId =(R.drawable.in_anshul_hide_password);
+        int showDrawableResId = R.drawable.in_anshul_show_password;
+        try {
+            mPasswordVisible = a.getBoolean(R.styleable.password_edit_text_password_visible, false);
+            hideDrawableResId = a.getResourceId(R.styleable.password_edit_text_hide_drawable, hideDrawableResId);
+            showDrawableResId = a.getResourceId(R.styleable.password_edit_text_show_drawable, showDrawableResId);
+        } finally {
+            a.recycle();
+            mHideDrawable = ContextCompat.getDrawable(getContext(), hideDrawableResId);
+            mShowDrawable = ContextCompat.getDrawable(getContext(), showDrawableResId);
+        }
         mHideDrawable.setBounds(0, 0, mHideDrawable.getIntrinsicWidth(), mHideDrawable.getIntrinsicHeight());
         mShowDrawable.setBounds(0, 0, mShowDrawable.getIntrinsicWidth(), mShowDrawable.getIntrinsicHeight());
         if (mPasswordVisible) {
@@ -73,14 +78,14 @@ public class PasswordEditText extends EditText {
     }
 
     private void showPassword() {
-        setCompoundDrawables(null, null, mShowDrawable, null);
+        setCompoundDrawables(null, null, mHideDrawable, null);
         setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
         setSelection(getText().length());
         mPasswordVisible = true;
     }
 
     private void hidePassword() {
-        setCompoundDrawables(null, null, mHideDrawable, null);
+        setCompoundDrawables(null, null, mShowDrawable, null);
         setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         setSelection(getText().length());
         mPasswordVisible = false;
