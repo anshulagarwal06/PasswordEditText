@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="password_edit_text">
+
+        <attr name="show_drawable" format="integer"/>
+        <attr name="hide_drawable" format="integer"/>
+        <attr name="password_visible" format="boolean"/>
+    </declare-styleable>
+</resources>
