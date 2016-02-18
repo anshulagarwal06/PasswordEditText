@@ -12,11 +12,45 @@
     tools:context="in.anshul.passwordedittextview.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <in.anshul.libray.PasswordEditText
-        android:id="@+id/password_edit_text"
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Name"
+            android:inputType="text"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/password_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:hide_drawable="@drawable/hide_password"
-        app:password_visible="false"
-        app:show_drawable="@drawable/show_password" />
+        android:layout_below="@id/username">
+
+        <in.anshul.libray.PasswordEditText
+            android:id="@+id/password_edit_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hide_drawable="@drawable/hide_password"
+            app:password_visible="false"
+            android:hint="Password"
+            app:show_drawable="@drawable/show_password" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/password_text">
+
+        <in.anshul.libray.PasswordEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:hide_drawable="@drawable/hide_password"
+            app:password_visible="true"
+            android:hint="Confirm password"
+            app:show_drawable="@drawable/show_password" />
+    </android.support.design.widget.TextInputLayout>
 </RelativeLayout>
