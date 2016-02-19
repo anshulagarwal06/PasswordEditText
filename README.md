@@ -17,8 +17,8 @@ Custom EditTextView to show/hide password with customizable icon.
 
 # Customise
  
- * `app:show_drawable="@drawable/ic_custom_show"` 
- * `app:hide_drawable="@drawable/ic_custom_hide"`
+ * `app:show_drawable="@drawable/show_password"` 
+ * `app:hide_drawable="@drawable/hide_password"`
  
 Defualt Password Visiblity can be set using attr 
 * `app:password_visible="true"`
