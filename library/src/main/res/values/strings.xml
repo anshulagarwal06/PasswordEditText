@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Libray</string>
+    <string name="hide_text">HIDE</string>
+    <string name="show_text">SHOW</string>
 </resources>
