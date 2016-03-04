@@ -102,7 +102,7 @@ public class PasswordEditText extends EditText {
         } else {
             setCompoundDrawables(null, null, mHideDrawable, null);
         }
-        setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+        setInputType(InputType.TYPE_CLASS_TEXT |InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
         setSelection(getText().length());
         mPasswordVisible = true;
     }
