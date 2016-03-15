@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatEditText;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -20,7 +21,7 @@ import android.widget.EditText;
 /**
  * Created by Shine on 09/02/16.
  */
-public class PasswordEditText extends EditText {
+public class PasswordEditText extends AppCompatEditText {
 
     private final int EXTRA_TOUCH_AREA = 50;
     private Drawable mHideDrawable;
@@ -45,12 +46,6 @@ public class PasswordEditText extends EditText {
     public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs, 0, 0);
-    }
-
-    @TargetApi(21)
-    public PasswordEditText(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init(context, attrs, defStyleAttr, defStyleRes);
     }
 
     private void init(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
