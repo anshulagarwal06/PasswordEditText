@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Password EditText by anshulagarwal06</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Password EditText</h1>
+        <h2>Custom EditTextView to show/hide Password with icon or text</h2>
+        <a href="https://github.com/anshulagarwal06/PasswordEditText" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="passwordedittext" class="anchor" href="#passwordedittext" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PasswordEditText</h1>
+
+<p>Custom EditTextView to show/hide password with customizable icon.</p>
+
+<p><img width="270" src="./art/Screenshot.png"></p>
+
+<h1>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h1>
+
+<div class="highlight highlight-source-groovy"><pre>
+ <span class="pl-k">&lt;</span><span class="pl-k">in.anshul.libray.PasswordEditText</span>
+            <span class="pl-c1">android</span>:layout_width<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>match_parent<span class="pl-pds">"</span></span>
+            <span class="pl-c1">android</span>:layout_height<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>wrap_content<span class="pl-pds">"</span></span>
+            <span class="pl-c1">app</span>:hide_drawable<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>@drawable/hide_password<span class="pl-pds">"</span></span>
+            <span class="pl-c1">app</span>:password_visible<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>
+            <span class="pl-c1">android</span>:hint<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>Confirm password<span class="pl-pds">"</span></span>
+            <span class="pl-c1">app</span>:show_drawable<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>@drawable/show_password<span class="pl-pds">"</span></span> <span class="pl-k">/</span><span class="pl-k">&gt;</span></pre></div>
+
+<p>Instead of drawable you can also use Text</p>
+
+<div class="highlight highlight-source-groovy"><pre>
+
+ <span class="pl-k">&lt;</span><span class="pl-k">in.anshul.libray.PasswordEditText</span>
+            <span class="pl-k">..</span>.
+            <span class="pl-c1">app</span>:show_as_text<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>
+            <span class="pl-c1">app</span>:show_text<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>@string/show_text<span class="pl-pds">"</span></span>
+            <span class="pl-c1">app</span>:hide_text<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>@string/hide_text<span class="pl-pds">"</span></span><span class="pl-k">/</span><span class="pl-k">&gt;</span></pre></div>
+
+<h1>
+<a id="customise" class="anchor" href="#customise" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customise</h1>
+
+<ul>
+<li>
+<code>app:show_drawable="@drawable/show_password"</code> </li>
+<li><code>app:hide_drawable="@drawable/hide_password"</code></li>
+</ul>
+
+<p>Defualt Password Visiblity can be set using attr </p>
+
+<ul>
+<li><code>app:password_visible="true"</code></li>
+</ul>
+
+<p><a href="https://jitpack.io/#anshulagarwal06/PasswordEditText"><img src="https://jitpack.io/v/anshulagarwal06/PasswordEditText.svg" alt=""></a></p>
+
+<h1>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h1>
+
+<p>Include <code>jitpack.io</code> inside of <strong>root</strong> project <code>build.gradle</code>:</p>
+
+<div class="highlight highlight-source-groovy"><pre>allprojects {
+        repositories {
+            <span class="pl-k">..</span>.
+            maven { url <span class="pl-s"><span class="pl-pds">"</span>https://jitpack.io<span class="pl-pds">"</span></span> }
+        }
+    }</pre></div>
+
+<p>After that you can easily include the library in your <strong>app</strong> <code>build.gradle</code>:</p>
+
+<div class="highlight highlight-source-groovy"><pre>dependencies {
+            compile <span class="pl-s"><span class="pl-pds">'</span>com.github.anshulagarwal06:PasswordEditText:v1.0<span class="pl-pds">'</span></span>
+    }</pre></div>
+
+<p>That's it build your project.</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/anshulagarwal06/PasswordEditText/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/anshulagarwal06/PasswordEditText/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/anshulagarwal06/PasswordEditText"></a> is maintained by <a href="https://github.com/anshulagarwal06">anshulagarwal06</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
